@@ -18,148 +18,148 @@ private class _UntitledPassthroughView: UIView {
 
 @IBDesignable
 class UntitledView : UIView, CAAnimationDelegate {
-
-
-	var animationCompletions = Dictionary<CAAnimation, (Bool) -> Void>()
-	var viewsByName: [String : UIView]!
-
-	// - MARK: Life Cycle
-
-	convenience init() {
-		self.init(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
-	}
-
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		self.setupHierarchy()
-	}
-
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-		self.setupHierarchy()
-	}
-
-	// - MARK: Scaling
-
-	override func layoutSubviews() {
-		super.layoutSubviews()
-
-		if let scalingView = self.viewsByName["__scaling__"] {
-			var xScale = self.bounds.size.width / scalingView.bounds.size.width
-			var yScale = self.bounds.size.height / scalingView.bounds.size.height
-			switch contentMode {
-			case .scaleToFill:
-				break
-			case .scaleAspectFill:
-				let scale = max(xScale, yScale)
-				xScale = scale
-				yScale = scale
-			default:
-				let scale = min(xScale, yScale)
-				xScale = scale
-				yScale = scale
-			}
-			scalingView.transform = CGAffineTransform(scaleX: xScale, y: yScale)
-			scalingView.center = CGPoint(x:self.bounds.midX, y:self.bounds.midY)
-		}
-	}
-
-	// - MARK: Setup
-
-	func setupHierarchy() {
-		var viewsByName: [String : UIView] = [:]
-		let bundle = Bundle(for:type(of: self))
-		let __scaling__ = UIView()
-		__scaling__.bounds = CGRect(x:0, y:0, width:600, height:600)
-		__scaling__.center = CGPoint(x:300.0, y:300.0)
-		__scaling__.clipsToBounds = true
-		self.addSubview(__scaling__)
-		viewsByName["__scaling__"] = __scaling__
-
-		let _2__root = _UntitledPassthroughView()
-		let _2__xScale = _UntitledPassthroughView()
-		let _2__yScale = _UntitledPassthroughView()
-		let _2 = UIImageView()
-		let img2 = UIImage(named:"2.png", in: bundle, compatibleWith: nil)
-		if img2 == nil {
-			print("** Warning: Could not create image from '2.png'")
-		}
-		_2.image = img2
-		_2.contentMode = .center
-		_2.bounds = CGRect(x:0, y:0, width:554.0, height:577.0)
-		_2__root.layer.position = CGPoint(x:300.000, y:300.000)
-		_2__xScale.transform = CGAffineTransform(scaleX: 1.00, y: 1.00)
-		_2__yScale.transform = CGAffineTransform(scaleX: 1.00, y: 1.00)
-		_2__root.transform = CGAffineTransform(rotationAngle: 0.000)
-		_2__root.addSubview(_2__xScale)
-		_2__xScale.addSubview(_2__yScale)
-		_2__yScale.addSubview(_2)
-		__scaling__.addSubview(_2__root)
-		viewsByName["2__root"] = _2__root
-		viewsByName["2__xScale"] = _2__xScale
-		viewsByName["2__yScale"] = _2__yScale
-		viewsByName["2"] = _2
-
-		self.viewsByName = viewsByName
-	}
-
-	// - MARK: Loading
-
-	func addLoadingAnimation() {
-        addLoadingAnimation(beginTime: 0, fillMode: CAMediaTimingFillMode.both.rawValue, removedOnCompletion: false, completion: nil)
-	}
-
-	func addLoadingAnimation(completion: ((Bool) -> Void)?) {
-        addLoadingAnimation(beginTime: 0, fillMode: CAMediaTimingFillMode.both.rawValue, removedOnCompletion: false, completion: completion)
-	}
-
-	func addLoadingAnimation(removedOnCompletion: Bool) {
-        addLoadingAnimation(beginTime: 0, fillMode: removedOnCompletion ? CAMediaTimingFillMode.removed.rawValue : CAMediaTimingFillMode.both.rawValue, removedOnCompletion: removedOnCompletion, completion: nil)
-	}
-
-	func addLoadingAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
-        addLoadingAnimation(beginTime: 0, fillMode: removedOnCompletion ? CAMediaTimingFillMode.removed.rawValue : CAMediaTimingFillMode.both.rawValue, removedOnCompletion: removedOnCompletion, completion: completion)
-	}
-
-	func addLoadingAnimation(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
-        let linearTiming = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-		if let complete = completion {
-			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
-			representativeAnimation.duration = 1.000
-			representativeAnimation.delegate = self
-			self.layer.add(representativeAnimation, forKey: "Loading")
-			self.animationCompletions[layer.animation(forKey: "Loading")!] = complete
-		}
-
-		let _2RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-		_2RotationAnimation.duration = 1.000
-		_2RotationAnimation.values = [0.000, 6.283] as [Float]
-		_2RotationAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
-		_2RotationAnimation.timingFunctions = [linearTiming]
-		_2RotationAnimation.repeatCount = HUGE
-		_2RotationAnimation.beginTime = beginTime
-        _2RotationAnimation.fillMode = CAMediaTimingFillMode(rawValue: fillMode)
-		_2RotationAnimation.isRemovedOnCompletion = removedOnCompletion
-		self.viewsByName["2__root"]?.layer.add(_2RotationAnimation, forKey:"Loading_Rotation")
-	}
-
-	func removeLoadingAnimation() {
-		self.layer.removeAnimation(forKey: "Loading")
-		self.viewsByName["2__root"]?.layer.removeAnimation(forKey: "Loading_Rotation")
-	}
-
-	// MARK: CAAnimationDelegate
-	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-		if let completion = self.animationCompletions[anim] {
-			self.animationCompletions.removeValue(forKey: anim)
-			completion(flag)
-		}
-	}
-
-	func removeAllAnimations() {
-		for subview in viewsByName.values {
-			subview.layer.removeAllAnimations()
-		}
-		self.layer.removeAnimation(forKey: "Loading")
-	}
+    
+    
+    var animationCompletions = Dictionary<CAAnimation, (Bool) -> Void>()
+    var viewsByName: [String : UIView]!
+    
+    // - MARK: Life Cycle
+    
+    convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupHierarchy()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setupHierarchy()
+    }
+    
+    // - MARK: Scaling
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if let scalingView = self.viewsByName["__scaling__"] {
+            var xScale = self.bounds.size.width / scalingView.bounds.size.width
+            var yScale = self.bounds.size.height / scalingView.bounds.size.height
+            switch contentMode {
+            case .scaleToFill:
+                break
+            case .scaleAspectFill:
+                let scale = max(xScale, yScale)
+                xScale = scale
+                yScale = scale
+            default:
+                let scale = min(xScale, yScale)
+                xScale = scale
+                yScale = scale
+            }
+            scalingView.transform = CGAffineTransform(scaleX: xScale, y: yScale)
+            scalingView.center = CGPoint(x:self.bounds.midX, y:self.bounds.midY)
+        }
+    }
+    
+    // - MARK: Setup
+    
+    func setupHierarchy() {
+        var viewsByName: [String : UIView] = [:]
+        let bundle = Bundle(for:type(of: self))
+        let __scaling__ = UIView()
+        __scaling__.bounds = CGRect(x:0, y:0, width:600, height:600)
+        __scaling__.center = CGPoint(x:300.0, y:300.0)
+        __scaling__.clipsToBounds = true
+        self.addSubview(__scaling__)
+        viewsByName["__scaling__"] = __scaling__
+        
+        let _2__root = _UntitledPassthroughView()
+        let _2__xScale = _UntitledPassthroughView()
+        let _2__yScale = _UntitledPassthroughView()
+        let _2 = UIImageView()
+        let img2 = UIImage(named:"2.png", in: bundle, compatibleWith: nil)
+        if img2 == nil {
+            print("** Warning: Could not create image from '2.png'")
+        }
+        _2.image = img2
+        _2.contentMode = .center
+        _2.bounds = CGRect(x:0, y:0, width:554.0, height:577.0)
+        _2__root.layer.position = CGPoint(x:300.000, y:300.000)
+        _2__xScale.transform = CGAffineTransform(scaleX: 1.00, y: 1.00)
+        _2__yScale.transform = CGAffineTransform(scaleX: 1.00, y: 1.00)
+        _2__root.transform = CGAffineTransform(rotationAngle: 0.000)
+        _2__root.addSubview(_2__xScale)
+        _2__xScale.addSubview(_2__yScale)
+        _2__yScale.addSubview(_2)
+        __scaling__.addSubview(_2__root)
+        viewsByName["2__root"] = _2__root
+        viewsByName["2__xScale"] = _2__xScale
+        viewsByName["2__yScale"] = _2__yScale
+        viewsByName["2"] = _2
+        
+        self.viewsByName = viewsByName
+    }
+    
+    // - MARK: Loading
+    
+    func addLoadingAnimation() {
+        addLoadingAnimation(beginTime: 0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
+    }
+    
+    func addLoadingAnimation(completion: ((Bool) -> Void)?) {
+        addLoadingAnimation(beginTime: 0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
+    }
+    
+    func addLoadingAnimation(removedOnCompletion: Bool) {
+        addLoadingAnimation(beginTime: 0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
+    }
+    
+    func addLoadingAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+        addLoadingAnimation(beginTime: 0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
+    }
+    
+    func addLoadingAnimation(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+        let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        if let complete = completion {
+            let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
+            representativeAnimation.duration = 1.000
+            representativeAnimation.delegate = self
+            self.layer.add(representativeAnimation, forKey: "Loading")
+            self.animationCompletions[layer.animation(forKey: "Loading")!] = complete
+        }
+        
+        let _2RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        _2RotationAnimation.duration = 1.000
+        _2RotationAnimation.values = [0.000, 6.283] as [Float]
+        _2RotationAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+        _2RotationAnimation.timingFunctions = [linearTiming]
+        _2RotationAnimation.repeatCount = HUGE
+        _2RotationAnimation.beginTime = beginTime
+        _2RotationAnimation.fillMode = fillMode
+        _2RotationAnimation.isRemovedOnCompletion = removedOnCompletion
+        self.viewsByName["2__root"]?.layer.add(_2RotationAnimation, forKey:"Loading_Rotation")
+    }
+    
+    func removeLoadingAnimation() {
+        self.layer.removeAnimation(forKey: "Loading")
+        self.viewsByName["2__root"]?.layer.removeAnimation(forKey: "Loading_Rotation")
+    }
+    
+    // MARK: CAAnimationDelegate
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if let completion = self.animationCompletions[anim] {
+            self.animationCompletions.removeValue(forKey: anim)
+            completion(flag)
+        }
+    }
+    
+    func removeAllAnimations() {
+        for subview in viewsByName.values {
+            subview.layer.removeAllAnimations()
+        }
+        self.layer.removeAnimation(forKey: "Loading")
+    }
 }
