@@ -1,0 +1,50 @@
+{
+  "name" : "Loading",
+  "keyall_timeline" : {
+    "keyframes" : [
+      {
+        "time_in_ms" : 0,
+        "easing_mode" : "linear",
+        "recorded" : false,
+        "recorded_start" : false,
+        "value_type" : "float",
+        "float_value" : 0,
+        "recorded_end" : false,
+        "identifier" : "FC64D2CE-FD4F-4244-846B-8E7ACC2CF179"
+      }
+    ],
+    "repeat_behavior" : "never",
+    "property_type" : "keyall"
+  },
+  "element_timelines" : {
+    "78C7DF44-C536-4E99-A4B3-AA9A808EEA90" : {
+      "rotation" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 0,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : -0.05000000074505806,
+            "recorded_end" : false,
+            "identifier" : "86B91D74-02E9-4065-BB22-D8A5450702BB"
+          },
+          {
+            "time_in_ms" : 1000,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 6.2331853064345282,
+            "recorded_end" : false,
+            "identifier" : "FA1E2520-E116-455B-B5DE-2541BF7C9601"
+          }
+        ],
+        "repeat_behavior" : "forever",
+        "property_type" : "rotation"
+      }
+    }
+  },
+  "identifier" : "76AC8E19-9767-4C29-9FBD-9163731CEA57"
+}

@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8600F8E04966D9437B740E7 /* Pods_ProShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F202485FD2B1D02CEF478FE2 /* Pods_ProShop.framework */; };
 		E2787201218B0AA900F04799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2787200218B0AA900F04799 /* AppDelegate.swift */; };
 		E2787203218B0AA900F04799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2787202218B0AA900F04799 /* ViewController.swift */; };
 		E2787206218B0AA900F04799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2787204218B0AA900F04799 /* Main.storyboard */; };
 		E2787209218B0AA900F04799 /* ProShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2787207218B0AA900F04799 /* ProShop.xcdatamodeld */; };
 		E278720B218B0AAA00F04799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E278720A218B0AAA00F04799 /* Assets.xcassets */; };
 		E278720E218B0AAA00F04799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E278720C218B0AAA00F04799 /* LaunchScreen.storyboard */; };
+		E278721D218B35C000F04799 /* loading.coreanimator in Resources */ = {isa = PBXBuildFile; fileRef = E278721A218B35C000F04799 /* loading.coreanimator */; };
+		E278721E218B35C000F04799 /* Untitled.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E278721B218B35C000F04799 /* Untitled.xcassets */; };
+		E278721F218B35C000F04799 /* UntitledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278721C218B35C000F04799 /* UntitledView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C650250B69A0A2D676DF1F8A /* Pods-ProShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProShop.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProShop/Pods-ProShop.release.xcconfig"; sourceTree = "<group>"; };
+		D4196763A3CCA8ABC29C0233 /* Pods-ProShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProShop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProShop/Pods-ProShop.debug.xcconfig"; sourceTree = "<group>"; };
 		E27871FD218B0AA900F04799 /* ProShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2787200218B0AA900F04799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2787202218B0AA900F04799 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		E278720A218B0AAA00F04799 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E278720D218B0AAA00F04799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E278720F218B0AAA00F04799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E278721A218B35C000F04799 /* loading.coreanimator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = loading.coreanimator; sourceTree = "<group>"; };
+		E278721B218B35C000F04799 /* Untitled.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Untitled.xcassets; sourceTree = "<group>"; };
+		E278721C218B35C000F04799 /* UntitledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UntitledView.swift; sourceTree = "<group>"; };
+		F202485FD2B1D02CEF478FE2 /* Pods_ProShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8600F8E04966D9437B740E7 /* Pods_ProShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8945E89236B1CCE41725D73C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F202485FD2B1D02CEF478FE2 /* Pods_ProShop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0DED44F7F7424BFF20ECEE8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4196763A3CCA8ABC29C0233 /* Pods-ProShop.debug.xcconfig */,
+				C650250B69A0A2D676DF1F8A /* Pods-ProShop.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E27871F4218B0AA900F04799 = {
 			isa = PBXGroup;
 			children = (
 				E27871FF218B0AA900F04799 /* ProShop */,
 				E27871FE218B0AA900F04799 /* Products */,
+				C0DED44F7F7424BFF20ECEE8 /* Pods */,
+				8945E89236B1CCE41725D73C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +86,58 @@
 		E27871FF218B0AA900F04799 /* ProShop */ = {
 			isa = PBXGroup;
 			children = (
-				E2787200218B0AA900F04799 /* AppDelegate.swift */,
-				E2787202218B0AA900F04799 /* ViewController.swift */,
-				E2787204218B0AA900F04799 /* Main.storyboard */,
-				E278720A218B0AAA00F04799 /* Assets.xcassets */,
-				E278720C218B0AAA00F04799 /* LaunchScreen.storyboard */,
+				E2787218218B283700F04799 /* Package */,
+				E2787217218B282900F04799 /* Controller */,
+				E2787216218B282000F04799 /* View */,
+				E2787215218B281800F04799 /* Model */,
 				E278720F218B0AAA00F04799 /* Info.plist */,
-				E2787207218B0AA900F04799 /* ProShop.xcdatamodeld */,
 			);
 			path = ProShop;
+			sourceTree = "<group>";
+		};
+		E2787215218B281800F04799 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2787200218B0AA900F04799 /* AppDelegate.swift */,
+				E278720A218B0AAA00F04799 /* Assets.xcassets */,
+				E2787207218B0AA900F04799 /* ProShop.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2787216218B282000F04799 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E278720C218B0AAA00F04799 /* LaunchScreen.storyboard */,
+				E2787204218B0AA900F04799 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2787217218B282900F04799 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2787202218B0AA900F04799 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E2787218218B283700F04799 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				E2787219218B35AA00F04799 /* Loading */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		E2787219218B35AA00F04799 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				E278721A218B35C000F04799 /* loading.coreanimator */,
+				E278721B218B35C000F04799 /* Untitled.xcassets */,
+				E278721C218B35C000F04799 /* UntitledView.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +147,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2787212218B0AAA00F04799 /* Build configuration list for PBXNativeTarget "ProShop" */;
 			buildPhases = (
+				B519B926AC1B906894BA7EB0 /* [CP] Check Pods Manifest.lock */,
 				E27871F9218B0AA900F04799 /* Sources */,
 				E27871FA218B0AA900F04799 /* Frameworks */,
 				E27871FB218B0AA900F04799 /* Resources */,
@@ -126,7 +200,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E278721D218B35C000F04799 /* loading.coreanimator in Resources */,
 				E278720E218B0AAA00F04799 /* LaunchScreen.storyboard in Resources */,
+				E278721E218B35C000F04799 /* Untitled.xcassets in Resources */,
 				E278720B218B0AAA00F04799 /* Assets.xcassets in Resources */,
 				E2787206218B0AA900F04799 /* Main.storyboard in Resources */,
 			);
@@ -134,12 +210,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B519B926AC1B906894BA7EB0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProShop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E27871F9218B0AA900F04799 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E2787203218B0AA900F04799 /* ViewController.swift in Sources */,
+				E278721F218B35C000F04799 /* UntitledView.swift in Sources */,
 				E2787209218B0AA900F04799 /* ProShop.xcdatamodeld in Sources */,
 				E2787201218B0AA900F04799 /* AppDelegate.swift in Sources */,
 			);
@@ -284,6 +386,7 @@
 		};
 		E2787213218B0AAA00F04799 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4196763A3CCA8ABC29C0233 /* Pods-ProShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +403,7 @@
 		};
 		E2787214218B0AAA00F04799 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C650250B69A0A2D676DF1F8A /* Pods-ProShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
