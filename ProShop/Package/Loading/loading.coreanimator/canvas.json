@@ -1,0 +1,63 @@
+{
+  "customClassType" : "",
+  "name" : "Canvas",
+  "mask" : null,
+  "anchorPoint" : {
+    "y" : 0.5,
+    "x" : 0.5
+  },
+  "size" : {
+    "height" : 600,
+    "width" : 600
+  },
+  "elementType" : "canvas",
+  "subelements" : [
+    {
+      "customClassType" : "",
+      "name" : "2",
+      "mask" : null,
+      "anchorPoint" : {
+        "y" : 0.5,
+        "x" : 0.5
+      },
+      "image_identifier" : "F1E90F69-4D9C-43CA-B71C-44AACD95806D",
+      "size" : {
+        "height" : 577,
+        "width" : 554
+      },
+      "elementType" : "image",
+      "subelements" : [
+
+      ],
+      "identifier" : "78C7DF44-C536-4E99-A4B3-AA9A808EEA90",
+      "position" : {
+        "y" : 300,
+        "x" : 300
+      },
+      "rotation" : 0,
+      "classType" : "Default",
+      "scale" : {
+        "y" : 1,
+        "x" : 1
+      },
+      "opacity" : 1,
+      "isHidden" : false,
+      "isLocked" : false
+    }
+  ],
+  "videoIdentifier" : null,
+  "identifier" : "35E396DC-F0E0-4277-A61D-2509337B239A",
+  "position" : {
+    "y" : 0,
+    "x" : 0
+  },
+  "rotation" : 0,
+  "classType" : "Default",
+  "scale" : {
+    "y" : 1,
+    "x" : 1
+  },
+  "opacity" : 1,
+  "isHidden" : false,
+  "isLocked" : false
+}
